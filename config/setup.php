@@ -4,6 +4,14 @@
 /* Database Connection */
 $dbConnection = mysqli_connect('localhost', 'lukas', 'Lietuva1', 'bookBin') OR die('Error: '.mysqli_connect_error());
 
+/* Constants */
+DEFINE('D_TEMPLATE', 'template');
+
+/* Functions */
+include('functions/data.php');
+include('functions/template.php');
+
+
 $site_title = 'bookBin: Online Bookstore';
 $page_title = 'Home Page';
 
@@ -16,8 +24,6 @@ else
 
 
 /* Page information */
-$query = "SELECT * FROM pages WHERE id = $page_id";
-$result = mysqli_query($dbConnection, $query);
-$page = mysqli_fetch_assoc($result);
+$page = data_page($dbConnection,$page_id);
 	
 ?>
