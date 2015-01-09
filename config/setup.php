@@ -11,6 +11,9 @@ DEFINE('D_TEMPLATE', 'template');
 include('functions/data.php');
 include('functions/template.php');
 
+/* Site Setup */
+$debug = data_setting($dbConnection, 'debug-status');
+
 
 $site_title = 'bookBin: Online Bookstore';
 $page_title = 'Home Page';
@@ -26,4 +29,6 @@ else
 /* Page information */
 $page = data_page($dbConnection,$page_id);
 	
+
+
 ?>

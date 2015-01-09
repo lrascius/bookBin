@@ -40,4 +40,15 @@
 		background-color: #f5f5f5;
 	}
 	
+	#btn-debug {
+		position: absolute;
+	}
+	
+	#console-debug {
+		position: absolute;
+		top: 50px;
+		left: 0px;
+		background: #ffffff;
+	}
+	
 </style>

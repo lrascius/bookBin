@@ -12,3 +12,17 @@
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>		
+
+<script>
+	/* Toggle Debug Console off and on */
+	$(document).ready(function() {
+		
+		$("#console-debug").hide();
+		$("#btn-debug").click(function(){
+			
+			$("#console-debug").toggle();
+			
+		});
+	});
+	
+</script>

@@ -21,11 +21,12 @@
 			<div class="container">
 				
 				<h1><?php echo $page['header']; ?></h1>	
-				<p><?php echo $page['body']; ?></p>
+				<?php echo $page['body_formatted']; ?>
+				
 							
 			</div>
 		</div> <!-- END Wrap -->
 			<?php include(D_TEMPLATE.'/footer.php'); ?>		
 	</body>
-
+	<?php if($debug == 1) { ?> <?php include('widgets/debug.php'); } ?>
 </html>
