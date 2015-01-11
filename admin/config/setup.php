@@ -1,7 +1,8 @@
 <?php
 /* Setup File */
-/* Database connection */
-include('connection.php');
+
+/* Database Connection */
+include('../config/connection.php');
 
 /* Constants */
 DEFINE('D_TEMPLATE', 'template');
