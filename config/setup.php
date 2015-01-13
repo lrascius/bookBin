@@ -1,16 +1,36 @@
 <?php
+session_start();
+/* Turn off error reporting */
+//error_reporting(0);
+
 /* Setup File */
-/* Database connection */
+/* Including the Database connection */
 include('connection.php');
+include('functions/users.php');
 
-/* Constants */
-DEFINE('D_TEMPLATE', 'template');
+if($_POST)
+{
+	$query = "SELECT * FROM users WHERE username = '$_POST[username]' AND password = SHA1('$_POST[password]')";
+	$result = mysqli_query($dbConnection, $query);
+	
+	if(mysqli_num_rows($result) == 1)
+	{
+		$_SESSION['username'] = $_POST['username'];
+		header("Location: index.php");	
+	}
+	else 
+	{
+		echo "fail";	
+	}
+		
+}
 
-/* Functions */
+
+/* Including Functions */
 include('functions/data.php');
 include('functions/template.php');
 
-/* Site Setup */
+/* Site Setup: Checks whether to enable the debug mode */
 $debug = data_setting($dbConnection, 'debug-status');
 
 
@@ -24,10 +44,7 @@ if (isset($_GET['page']))
 else 
 	$page_id = 1;
 
-
-/* Page information */
+/* Load page information such as heading and body */
 $page = data_page($dbConnection,$page_id);
 	
-
-
 ?>

@@ -25,3 +25,10 @@
 	
 	
 </script>
+
+<!-- Stop the navigation drop down from closing upon a click -->
+<script type="text/javascript">
+    $('.dropdown-menu input, .dropdown-menu label').click(function(e) {
+        e.stopPropagation();
+    });
+</script>

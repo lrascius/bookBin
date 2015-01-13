@@ -9,26 +9,35 @@
 			<?php 
 				navigation_main($dbConnection, $page_id);					
 			?>
+			<?php
+			if(logged_in() == true)			
+				echo "<li><a href='logout.php'> Logout </a> </li>";
+			else 
+				echo "Not Logged in!"
+			?>
 		</ul>
 		<ul class="nav navbar-nav navbar-right">
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> 
 				<span class="glyphicon glyphicon-user" aria-hidden="true"></span> Login <span class="caret"></span></a>
 				<ul class="dropdown-menu" role="menu">
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-					</div>
-					<div class="input-group">
-						<input type="text" class="form-control" placeholder="Password" aria-describedby="basic-addon1">
-					</div>
-					<button type="button" class="btn btn-default">
-  						<!--<span class="glyphicon glyphicon-star" aria-hidden="true"></span> --> Submit
-					</button>
+					<form action="index.php" method="post" role="form">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" name="username">
+						</div>
+						<div class="input-group">
+							<input type="password" class="form-control" placeholder="Password" aria-describedby="basic-addon1" name="password">
+						</div>
+						<button type="submit" class="btn btn-default">
+	  						<!--<span class="glyphicon glyphicon-star" aria-hidden="true"></span> --> Submit
+						</button>
+					</form>
 				</ul>
 			</li>
 		</ul>
 	</div>
 </nav> <!-- END nav Main Navigation -->
+
 
 <!-- Stop the navigation drop down from closing upon a click -->
 <script type="text/javascript">

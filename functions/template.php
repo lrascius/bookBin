@@ -1,5 +1,6 @@
 <?php
-/* Function that gets the navigation items except the login dropdown*/
+/* Function that gets the navigation items except the login dropdown
+ * The active page is set based on the page_id passed to the function */
 function navigation_main($dbConnection, $page_id)
 {
 	$query = "SELECT * FROM pages";

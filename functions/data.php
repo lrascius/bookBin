@@ -1,5 +1,6 @@
 <?php 
 
+/* Function that returns the value of a settings given the settings id */
 function data_setting($dbConnection, $id)
 {
 	$query = "SELECT * FROM settings WHERE id = '$id'";
@@ -9,6 +10,9 @@ function data_setting($dbConnection, $id)
 	
 }
 
+/* Function that returns an array for the data of the page given the page id
+ * The function also checks if the html tags are presents for the body and 
+ * adds them if they are not */
 function data_page($dbConnection,$id)
 {
 	$query = "SELECT * FROM pages WHERE id = '$id'";
