@@ -1,3 +1,4 @@
+<!-- Create a debug window with variables and other infromation -->
 <div id="console-debug"> 
 	<?php 
 		$all_vars = get_defined_vars();

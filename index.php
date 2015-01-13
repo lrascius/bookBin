@@ -23,8 +23,10 @@
 				<h1><?php echo $page['header']; ?></h1>	
 				<?php echo $page['body_formatted']; ?>
 				
-							
+						
 			</div>
+			<?php include('template/carousel.php'); ?>
+
 		</div> <!-- END Wrap -->
 			<?php include(D_TEMPLATE.'/footer.php'); ?>		
 	</body>

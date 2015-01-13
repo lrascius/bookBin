@@ -1,5 +1,5 @@
 <?php
-
+/* Function that gets the navigation items except the login dropdown*/
 function navigation_main($dbConnection, $page_id)
 {
 	$query = "SELECT * FROM pages";
