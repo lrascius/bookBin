@@ -6,6 +6,7 @@ session_start();
 /* Setup File */
 /* Including the Database connection */
 include('connection.php');
+include('functions/general.php');
 include('functions/users.php');
 
 if($_POST)
@@ -20,7 +21,7 @@ if($_POST)
 	}
 	else 
 	{
-		include("template/failedLogin.php");//echo "<strong> Login failed: Wrong username or password! </strong>";	
+		include("alerts/failedLogin.php");
 	}
 		
 }

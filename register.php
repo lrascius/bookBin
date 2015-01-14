@@ -1,4 +1,5 @@
-<?php include ('config/setup.php'); ?>
+<!-- <?php include ('config/setup.php'); ?> -->
+<?php include('config/connection.php'); ?>
 
 <!DOCTYPE html>
 
