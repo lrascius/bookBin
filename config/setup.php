@@ -16,11 +16,11 @@ if($_POST)
 	if(mysqli_num_rows($result) == 1)
 	{
 		$_SESSION['username'] = $_POST['username'];
-		header("Location: index.php");	
+		header("Location: index.php");
 	}
 	else 
 	{
-		echo "fail";	
+		include("template/failedLogin.php");//echo "<strong> Login failed: Wrong username or password! </strong>";	
 	}
 		
 }

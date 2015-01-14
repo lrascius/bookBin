@@ -50,5 +50,12 @@
 		left: 0px;
 		background: #ffffff;
 	}
+	h2 {
+		text-align: center
+	}
+	
+	.input-group {
+		text-align: center
+	}
 	
 </style>
