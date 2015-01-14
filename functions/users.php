@@ -19,8 +19,11 @@ function register_user($dbConnection, $registerData)
 {
 	array_walk($registerData, 'arraySanitize');
 	$registerData['password'] = SHA1($registerData['password']);
-	$data = '`' . implode('`, `', $registerData) . '`';
-	echo $data;
+
+	$fields = implode(',', array_keys($registerData));
+	$data = '\'' . implode('\', \'', $registerData) . '\'';
+	$query = "INSERT INTO users ($fields) VALUES ($data)";
+	mysqli_query($dbConnection, $query);
 
 }
 

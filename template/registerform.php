@@ -37,12 +37,14 @@ if($_POST)
 		$registerData = array('firstname' => $_POST['firstname'],
 							  'lastname'  => $_POST['lastname'],
 							  'email'     => $_POST['email'],
+							  'username'  => $_POST['username'],
 							  'password'  => $_POST['password']);
 	}
 	register_user($dbConnection, $registerData);
+	header('Location: index.php?success');
 }
-
 ?>
+
 <div id="wrap">		
 	<?php include('template/navigation.php'); ?>
 	<div class="container">
@@ -87,3 +89,4 @@ if($_POST)
 		</div><!-- END row -->
 	</div><!-- END container -->
 </div><!-- END Wrap -->
+

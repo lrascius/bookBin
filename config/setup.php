@@ -47,5 +47,10 @@ else
 
 /* Load page information such as heading and body */
 $page = data_page($dbConnection,$page_id);
+
+if(isset($_GET['success']))
+{
+	include('alerts/succRegistration.php');
+}
 	
 ?>
