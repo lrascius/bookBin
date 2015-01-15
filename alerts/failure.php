@@ -3,5 +3,7 @@
       &times;
    </a>
 	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	You have registered successfully!
+	<?php
+		echo $message;
+	?>
 </div>

@@ -8,29 +8,34 @@ if($_POST)
 		if(empty($value) && in_array($key, $required_fields) == TRUE)
 		{
 			$errors = TRUE;
-			include('alerts/emptyFields.php');
+			$message = "Did not fill out all the required fields!";
+			include('alerts/failure.php');
 			break 1;
 		}
 	}
 	if(user_exists($dbConnection, $_POST['username']))
 	{
 		$errors = TRUE;
-		include('alerts/userExists.php');
+		$message = "Username exists!";
+		include('alerts/failure.php');
 	}
-	if(strlen($_POST['password']) <= 7)
+	if(strlen($_POST['password']) <= 7 AND strlen($_POST['password']) > 0)
 	{
 		$errors = TRUE;
-		include('alerts/passLength.php');
+		$message = "Password needs to be atleast 7 characters!";
+		include('alerts/failure.php');
 	}
 	if($_POST['password'] != $_POST['password_again'])
 	{
 		$errors = TRUE;
-		include('alerts/passnotEqual.php');
+		$message = "Passwords did not match!";
+		include('alerts/failure.php');
 	}
 	if(preg_match("/\\s/", $_POST['username']))
 	{
 		$errors = TRUE;
-		include('alerts/userSpace.php');
+		$message = "Username cannot contain any spaces!";
+		include('alerts/failure.php');
 	}
 	if($errors == FALSE)
 	{
@@ -39,9 +44,9 @@ if($_POST)
 							  'email'     => $_POST['email'],
 							  'username'  => $_POST['username'],
 							  'password'  => $_POST['password']);
+		register_user($dbConnection, $registerData);
+		header('Location: index.php?success');
 	}
-	register_user($dbConnection, $registerData);
-	header('Location: index.php?success');
 }
 ?>
 

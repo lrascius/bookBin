@@ -57,5 +57,47 @@
 	.input-group {
 		text-align: center
 	}
-	
+	.navbar {
+		margin: 0;
+	}
+	.sidebar {
+		left: 0;
+		padding: 0;
+		top: 90px;
+		text-align: center;
+		/*border: 2px;
+    	border-radius: 25px; 
+		border: 4px solid;*/
+		/*position: fixed;
+		top: 51px;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		display: block;
+		padding: 20px;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background-color: #f5f5f5;
+		border-right: 1px solid #eee;*/
+	}
+	.nav-sidebar {
+		background-color: #f5f5f5 ;
+	}
+	.labels {
+		background-color: #0099FF;
+		/*border: 3px solid;
+    	border-radius: 100px;*/ 
+	}
+	#bookCollumns {
+		margin: 0;
+	}
+	#myCarousel {
+		top: 150px;
+	}
+	#footer {
+	   position:absolute;
+	   top: 1000px;
+	   width:100%;
+	   height:60px;   /* Height of the footer */
+   }
 </style>

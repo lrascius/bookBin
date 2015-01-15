@@ -21,7 +21,8 @@ if($_POST)
 	}
 	else 
 	{
-		include("alerts/failedLogin.php");
+		$message = "Invalid username or password!";
+		include('alerts/failure.php');
 	}
 		
 }
@@ -50,7 +51,8 @@ $page = data_page($dbConnection,$page_id);
 
 if(isset($_GET['success']))
 {
-	include('alerts/succRegistration.php');
+	$message = "You have registered successfully!";
+	include('alerts/success.php');
 }
 	
 ?>
