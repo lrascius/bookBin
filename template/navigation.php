@@ -1,9 +1,9 @@
 <!-- Navigation at the top of the page -->
 <nav class="navbar navbar-default" role="navigation">
 	<!-- Debug button that is set in the database if enabled -->
-	<?php if($debug == 1) { ?>
+	<?php //if($debug == 1) { ?>
 	<button id="btn-debug" class = btn btn-default> <i class="fa fa-bug"></i> </button>
-	<?php } ?>
+	<?//php } ?>
 	<div class="container">
 		<ul class="nav navbar-nav"> 
 			<?php 

@@ -17,7 +17,7 @@
 	</head>
 	
 	<body>
-		<?php include('template/registerform.php'); ?>
+		<?php include('template/sellForm.php'); ?>
 		<?php include('template/footer.php'); ?>		
 	</body>
 	<?php if($debug == 1) { ?> <?php include('widgets/debug.php'); } ?>

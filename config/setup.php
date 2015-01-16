@@ -1,5 +1,8 @@
 <?php
-session_start();
+if(!isset($_SESSION))
+{
+    session_start();
+}
 /* Turn off error reporting */
 //error_reporting(0);
 
@@ -8,6 +11,7 @@ session_start();
 include('connection.php');
 include('functions/general.php');
 include('functions/users.php');
+include('functions/book.php');
 
 if($_POST)
 {
