@@ -1,5 +1,5 @@
 <!-- Navigation at the top of the page -->
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 		<ul class="nav navbar-nav"> 
 			<li><a href="index.php">Home</a></li>

@@ -1,3 +1,4 @@
+<div id="wrap">
 <div class="container">
 <div class="carousel slide" id="myCarousel">
 
@@ -71,4 +72,5 @@
 	<a class="right carousel-control" data-slide="next" href="#myCarousel"><span class="icon-next"></span></a>
 
 </div><!-- end myCarousel -->
+</div>
 </div>
