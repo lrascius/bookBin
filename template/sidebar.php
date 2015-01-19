@@ -1,25 +1,16 @@
 <div id="sidebar-wrapper">
     <ul class="sidebar-nav">
         <li>
-            <a href="#">Dashboard</a>
+            <a href="#">New Releases</a>
         </li>
         <li>
-            <a href="#">Shortcuts</a>
+            <a href="#">Top Rated</a>
         </li>
         <li>
-            <a href="#">Overview</a>
+            <a href="fiction.php">Fiction</a>
         </li>
         <li>
-            <a href="#">Events</a>
-        </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#">Services</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
+            <a href="#">Romance</a>
         </li>
     </ul>
 </div>
