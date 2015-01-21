@@ -92,7 +92,6 @@ function register_user($dbConnection, $register_data)
 	$query = "INSERT INTO `users` ($fields) VALUES ($data)";
 	mysqli_query($dbConnection, $query);
 	
-	//mysql_query("INSERT INTO `users` ($fields) VALUES ($data)");
 	email($register_data['email'], 'Activate your account', "Hello " . $register_data['firstname'] . ",\n\nYou need to activate your account, so use the link below:\n\nhttp://localhost/lr/activate.php?email=" . $register_data['email'] . "&email_code=" . $register_data['email_code'] . "\n\n - phpacademy");
 }
 
