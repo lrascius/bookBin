@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
-<?php include('template/head.php'); ?>
+<?php include('template/head.php'); 
+?>
 <body>
-<?php include('template/navigation.php'); ?>
+<?php include('template/navigation.php'); 
+?>

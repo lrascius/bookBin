@@ -16,7 +16,7 @@ function addBook($dbConnection, $sell_data)
 	$data = '\'' . implode('\', \'', $sell_data) . '\'';
 	
 	$query = "INSERT INTO `book` ($fields) VALUES ($data)";
-	mysqli_query($dbConnection, $query);
 
+	mysqli_query($dbConnection, $query);
 }
 ?>

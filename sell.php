@@ -1,6 +1,6 @@
 <?php
 include('config/setup.php');
-include('template/overall/header.php');
+
 if(empty($_POST) == FALSE)
 {
 	$title = $_POST['title'];
@@ -22,6 +22,7 @@ if(empty($_POST) == FALSE)
 		addBook($dbConnection, $sell_data);	
 	}
 }
+
 if (empty($errors) === false) 
 {
 ?>
@@ -29,7 +30,10 @@ if (empty($errors) === false)
 <?php
 	echo output_errors($errors);
 }
-
 ?>
-<?php (include 'template/sellForm.php'); ?>
-<?php (include 'template/overall/footer.php'); ?>
+
+<?php 
+include('template/overall/header.php');
+include('template/sellForm.php');
+include('template/overall/footer.php'); 
+?>
