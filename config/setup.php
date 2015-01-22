@@ -7,6 +7,6 @@
 	require('functions/users.php');
 	require('functions/books.php');
 
-	/* Houses all the errors */
+	/* All errors */
 	$errors = array();
 ?>

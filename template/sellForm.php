@@ -1,13 +1,3 @@
-<?php 
-if($_POST)
-{
-	if(isset($_FILES['bookImage']) == true)
-		echo "wow";
-	
-}
-
-?>
-
 <div id="wrap">		
 	<?php include('template/navigation.php'); ?>
 	<div class="container">
@@ -19,7 +9,7 @@ if($_POST)
 						<strong> Information </strong>
 					</div><!-- END panel-heading -->
 					<div class="panel-body">		
-						<form action="sell.php" method="post" role="form">
+						<form action="sell.php" method="post" role="form" enctype="multipart/form-data">
 						  <div class="form-group">
 						    <label for="firstname">Title</label>
 						    <input type="text" class="form-control" id="title" name="title" placeholder="First Name">
@@ -36,12 +26,10 @@ if($_POST)
 						    <label for="price">Price</label>
 						    <input type="number" class="form-control" id="price" name="price" placeholder="Price">
 						  </div>
-						  		<label for="image">Image</label>
-								<div class="form-group" data-provides="fileinput">
-									<input type="file" name="bookImage"> </input>
-				  					<div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file"></i> 
-									</div>
-								</div>
+						  <div class="form-group">
+						  	<label for="image">Image</label>
+							<input type="file" name="bookImage"> 
+						  </div>
 						  <div>
 						  	<button type="submit" class="btn btn-default">Submit</button>
 						  </div>
