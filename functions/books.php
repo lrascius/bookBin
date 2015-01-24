@@ -1,19 +1,35 @@
 <?php
 
-function bookPlaceholder($title, $author, $image)
+function bookPlaceholder($dbConnection, $category)
 {
-	echo '<div class="col-xs-6 col-sm-2 placeholder">';
-	echo '<img src="'. $image .'" class="img-responsive" alt="Generic placeholder thumbnail">';
-	echo '<h4>'. $title .'</h4>';
-	echo '<span class="text-muted">' . $author . '</span>';
-	echo '</div>';
+	$query = "SELECT title, author, image FROM book WHERE category = '$category'";
+	
+	$result = mysqli_query($dbConnection, $query);
+    while($row = $result->fetch_assoc()) 
+    {
+    	$title = $row['title'];
+		if(strlen($title) > 10)
+		{
+			$title = substr($title, 0, -(strlen($title)) + 10) . '...'; 
+		}
+    	$author = $row['author'];
+		if(strlen($author) > 10)
+		{
+			$author = substr($author, 0, -(strlen($author)) + 10) . '...'; 
+		}		
+		echo '<div class="col-xs-6 col-sm-2 placeholder">';
+		echo '<img src="'. $row['image'] .'" class="img-responsive" alt="Generic placeholder thumbnail" id="image">';
+		echo '<h6>'. $title .'</h6>';
+		echo '<span class="text-muted"><h6>' . $author . '</h6></span>';
+		echo '</div>';
+    }
 }
 
-function addBook($dbConnection, $sell_data)
+function addBook($dbConnection, $sellData)
 {
-	array_walk($sell_data, 'array_sanitize');
-	$fields = '`' . implode('`, `', array_keys($sell_data)) . '`';
-	$data = '\'' . implode('\', \'', $sell_data) . '\'';
+	array_walk($sellData, 'arraySanitize');
+	$fields = '`' . implode('`, `', array_keys($sellData)) . '`';
+	$data = '\'' . implode('\', \'', $sellData) . '\'';
 	
 	$query = "INSERT INTO `book` ($fields) VALUES ($data)";
 

@@ -5,19 +5,21 @@ if(empty($_POST) == FALSE)
 {
 	$title = $_POST['title'];
 	$author = $_POST['author'];
+	$category = $_POST['category'];
 	$description = $_POST['description'];
 	$price = $_POST['price'];
-	if (empty($title) == true || empty($author) == true || empty($description) == true || empty($price)) 
+	if (empty($title) == true || empty($author) == true || empty($description) == true || empty($price) || empty($category)) 
 	{
 		$errors[] = 'You must fill out all the required fields!';
 	}
 	else 
 	{
-		$sell_data = array(
+		$sellData = array(
 			'title' 		=> $_POST['title'],
 			'author' 		=> $_POST['author'],
 			'description' 	=> $_POST['description'],
 			'price' 		=> $_POST['price'],
+			'category'		=> $_POST['category'],
 			'user_id'		=> $_SESSION['user_id']
 		);
 		if(isset($_FILES['bookImage']) == true)
@@ -56,10 +58,10 @@ if(empty($_POST) == FALSE)
 			{	
     			if (move_uploaded_file($_FILES["bookImage"]["tmp_name"], $file_path)) 
     			{
-    				$sell_data['image'] = $file_path;
-					addBook($dbConnection, $sell_data);
+    				$sellData['image'] = $file_path;
+					addBook($dbConnection, $sellData);
        				echo "The file ". basename( $_FILES["bookImage"]["name"]). " has been uploaded.";
-    			} 
+    			} 			
 			}		
 		}
 	}
@@ -70,7 +72,7 @@ if (empty($errors) === false)
 ?>
 	<h2>We tried to log you in, but...</h2>
 <?php
-	echo output_errors($errors);
+	echo outputErrors($errors);
 }
 ?>
 

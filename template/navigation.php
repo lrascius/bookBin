@@ -6,7 +6,7 @@
 			<li><a href="books.php">Books</a></li>
 		</ul>
 <?php
-if(logged_in())
+if(loggedIn())
 	include('template/dropdownLoggedIn.php');
 else
 	include('template/dropdownLoggedOut.php');

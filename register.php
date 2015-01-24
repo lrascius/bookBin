@@ -1,14 +1,14 @@
 <?php
 include('config/setup.php');
-logged_in_redirect();
+loggedinRedirect();
 include('template/overall/header.php');
 
 if (empty($_POST) === false) 
 {
-	$required_fields = array('username', 'password', 'password_again', 'firstname', 'email');
+	$requiredFields = array('username', 'password', 'password_again', 'firstname', 'email');
 	foreach($_POST as $key=>$value) 
 	{
-		if (empty($value) && in_array($key, $required_fields) === true) 
+		if (empty($value) && in_array($key, $requiredFields) === true) 
 		{
 			$errors[] = 'Fields marked with an asterisk are required';
 			break 1;
@@ -17,7 +17,7 @@ if (empty($_POST) === false)
 	
 	if (empty($errors) === true) 
 	{
-		if (user_exists($dbConnection, $_POST['username']) === true) 
+		if (userExists($dbConnection, $_POST['username']) === true) 
 		{
 			$errors[] = 'Sorry, the username \'' . $_POST['username'] . '\' is already taken';
 		}
@@ -37,7 +37,7 @@ if (empty($_POST) === false)
 		{
 			$errors[] = 'A valid email address is required';
 		}
-		if (email_exists($dbConnection, $_POST['email']) === true) 
+		if (emailExists($dbConnection, $_POST['email']) === true) 
 		{
 			$errors[] = 'Sorry, the email \'' . $_POST['email'] . '\' is already in use';
 		}
@@ -55,23 +55,22 @@ else
 {
 	if (empty($_POST) === false && empty($errors) === true) 
 	{
-		$register_data = array(
+		$registerData = array(
 			'username' 		=> $_POST['username'],
 			'password' 		=> $_POST['password'],
 			'firstname' 	=> $_POST['firstname'],
 			'lastname' 		=> $_POST['lastname'],
-			'email' 		=> $_POST['email'],
-			'email_code'	=> md5($_POST['username'] + microtime())
+			'email' 		=> $_POST['email']
 		);
 		
-		register_user($dbConnection, $register_data);
+		register_user($dbConnection, $registerData);
 		header('Location: register.php?success');
 		exit();
 		
 	} 
 	else if (empty($errors) === false) 
 	{
-		echo output_errors($errors);
+		echo outputErrors($errors);
 	}
 ?>
 

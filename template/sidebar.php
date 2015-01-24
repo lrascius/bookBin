@@ -10,7 +10,7 @@
             <a href="fiction.php">Fiction</a>
         </li>
         <li>
-            <a href="#">Romance</a>
+            <a href="romance.php">Romance</a>
         </li>
     </ul>
 </div>

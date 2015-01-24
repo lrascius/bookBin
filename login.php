@@ -1,6 +1,6 @@
 <?php
 include('config/setup.php');
-logged_in_redirect();
+loggedinRedirect();
 // Check if the POST array is not empty
 if (empty($_POST) === false) {
 // 	The username and password entered 
@@ -12,12 +12,12 @@ if (empty($_POST) === false) {
 		$errors[] = 'You need to enter a username and password';
 	}
 // Check if the user exists in the database
-	else if (user_exists($dbConnection, $username) === false) 
+	else if (userExists($dbConnection, $username) === false) 
 	{
 		$errors[] = 'We can\'t find that username. Have you registered?';
 	} 
 // Check if the user has activated its account
-	else if (user_active($dbConnection, $username) === false) 
+	else if (userActive($dbConnection, $username) === false) 
 	{
 		$errors[] = 'You haven\'t activated your account!';
 	} 
@@ -56,7 +56,7 @@ if (empty($errors) === false)
 ?>
 	<h2>We tried to log you in, but...</h2>
 <?php
-	echo output_errors($errors);
+	echo outputErrors($errors);
 }
 include('template/overall/footer.php');
 ?>
