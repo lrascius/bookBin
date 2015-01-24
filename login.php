@@ -37,7 +37,8 @@ if (empty($_POST) === false) {
 		else 
 		{
 // 			Set the user session
-			$_SESSION['user_id'] = $login;
+			//$_SESSION['user_id'] = $login;
+			$_SESSION['user_id'] = getUserID($dbConnection,$username);
 // 			Redirect the user to home
 			header('Location: index.php');
 			exit();

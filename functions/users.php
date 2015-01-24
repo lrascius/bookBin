@@ -178,4 +178,12 @@ function login($dbConnection, $username, $password)
 	$data = mysqli_fetch_assoc($result);
 	return ($data['num'] == 1) ? TRUE : FALSE;
 }
+
+function getUserID($dbConnection, $username)
+{
+	$query = "SELECT (`user_id`) FROM `users` WHERE `username` = '$username'";
+	$result = mysqli_query($dbConnection, $query);
+	$data = mysqli_fetch_assoc($result);
+	return $data['user_id'];
+}
 ?>

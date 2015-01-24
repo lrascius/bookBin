@@ -17,14 +17,15 @@ if(empty($_POST) == FALSE)
 			'title' 		=> $_POST['title'],
 			'author' 		=> $_POST['author'],
 			'description' 	=> $_POST['description'],
-			'price' 		=> $_POST['price']
+			'price' 		=> $_POST['price'],
+			'user_id'		=> $_SESSION['user_id']
 		);
-		addBook($dbConnection, $sell_data);	
 		if(isset($_FILES['bookImage']) == true)
 		{
 			$targetDirectory = "images/";
 			$targetFile = $targetDirectory . basename($_FILES["bookImage"]["name"]);
 			$imageFileType = pathinfo($targetFile,PATHINFO_EXTENSION);
+			$file_path = 'images/' . substr(SHA1(time()), 0, 10) . '.' . $imageFileType;
 			$uploadOk = 1;
     		$check = getimagesize($_FILES["bookImage"]["tmp_name"]);
     		if($check !== false) 
@@ -36,11 +37,11 @@ if(empty($_POST) == FALSE)
         		echo "File is not an image.";
         		$uploadOk = 0;
     		}
-			if ($_FILES["bookImage"]["size"] > 500000) 
-			{
-    			echo "Sorry, your file is too large.";
-    			$uploadOk = 0;
-			}
+			// if ($_FILES["bookImage"]["size"] > 500000) 
+			// {
+    			// echo "Sorry, your file is too large.";
+    			// $uploadOk = 0;
+			// }
 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 			&& $imageFileType != "gif" ) 
 			{
@@ -52,15 +53,13 @@ if(empty($_POST) == FALSE)
    				echo "Sorry, your file was not uploaded.";
 			} 
 			else 
-			{
-    			if (move_uploaded_file($_FILES["bookImage"]["tmp_name"], $targetFile)) 
+			{	
+    			if (move_uploaded_file($_FILES["bookImage"]["tmp_name"], $file_path)) 
     			{
+    				$sell_data['image'] = $file_path;
+					addBook($dbConnection, $sell_data);
        				echo "The file ". basename( $_FILES["bookImage"]["name"]). " has been uploaded.";
     			} 
-    			else 
-    			{
-        			echo "Sorry, there was an error uploading your file.";
-    			}
 			}		
 		}
 	}
