@@ -131,12 +131,24 @@
 	}
 	
 	#image {
-    position: relative;
-    float: left;
-    width:  128px;
-    height: 193px;
-    background-position: 50% 50%;
-    background-repeat:   no-repeat;
-    background-size:     cover;
+	    position: relative;
+	    float: left;
+	    width:  128px;
+	    height: 193px;
+	    background-position: 50% 50%;
+	    background-repeat:   no-repeat;
+	    background-size:     cover;
 	}
+	
+	#imageInd {
+	    position: relative;
+	    float: left;
+	    left: 20px;
+	    width:  128px;
+	    height: 193px;
+	    background-position: 50% 50%;
+	    background-repeat:   no-repeat;
+	    background-size:     cover;
+	}
+	
 </style>
