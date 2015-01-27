@@ -11,6 +11,7 @@ if (empty($_POST) === false)
 		if (empty($value) && in_array($key, $requiredFields) === true) 
 		{
 			$errors[] = 'Fields marked with an asterisk are required';
+			include('alerts/failure.php');
 			break 1;
 		}
 	}
@@ -66,7 +67,6 @@ else
 		register_user($dbConnection, $registerData);
 		header('Location: register.php?success');
 		exit();
-		
 	} 
 	else if (empty($errors) === false) 
 	{

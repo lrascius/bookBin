@@ -3,7 +3,8 @@
       &times;
    </a>
 	<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-	<?php
-		echo $message;
-	?>
+	sfafafa!
+	<!-- <?php
+		echo $errors[0];
+	?> -->
 </div>

@@ -130,7 +130,6 @@
 	    width: 150px;
 	}
 	
-	
 	#image {
     position: relative;
     float: left;

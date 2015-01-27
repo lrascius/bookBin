@@ -2,7 +2,6 @@
 include('config/setup.php');
 include('template/overall/header.php');
 ?>
-
 <?php include('template/sidebar.php'); ?>
 <?php 
 $category = 'Romance';

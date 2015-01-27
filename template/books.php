@@ -8,3 +8,4 @@ bookPlaceholder($dbConnection, $category);
 	  	</div>
 	</div>
 </div>
+
